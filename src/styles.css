@@ -1,0 +1,28 @@
+.title {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.component_container {
+  position: relative;
+}
+
+.main {
+  display: grid;
+  gap: 1em;
+}
+
+button {
+  text-transform: uppercase;
+
+  display: inline-block;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.button {
+  border-radius: 290486px;
+  padding: 1.25em 2em;
+  color: #9013fe;
+  background-color: #fff;
+}
