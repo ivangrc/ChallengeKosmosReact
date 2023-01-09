@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
+import React, { useRef, useState } from "react";
 import Moveable from "react-moveable";
 
 export const Component = ({
@@ -12,7 +12,6 @@ export const Component = ({
   id,
   setSelected,
   isSelected = false,
-  updateEnd,
   onDelete,
   image,
 }) => {
@@ -82,43 +81,43 @@ export const Component = ({
     });
   };
 
-  const onResizeEnd = async (e) => {
-    let newWidth = e.lastEvent?.width;
+  // const onResizeEnd = async (e) => {
+  //   let newWidth = e.lastEvent?.width;
 
-    let newHeight = e.lastEvent?.height;
+  //   let newHeight = e.lastEvent?.height;
 
-    const positionMaxTop = top + newHeight;
+  //   const positionMaxTop = top + newHeight;
 
-    const positionMaxLeft = left + newWidth;
+  //   const positionMaxLeft = left + newWidth;
 
-    if (positionMaxTop > parentBounds?.height)
-      newHeight = parentBounds?.height - top;
-    if (positionMaxLeft > parentBounds?.width)
-      newWidth = parentBounds?.width - left;
+  //   if (positionMaxTop > parentBounds?.height)
+  //     newHeight = parentBounds?.height - top;
+  //   if (positionMaxLeft > parentBounds?.width)
+  //     newWidth = parentBounds?.width - left;
 
-    const { lastEvent } = e;
-    const { drag } = lastEvent;
-    const { beforeTranslate } = drag;
+  //   const { lastEvent } = e;
+  //   const { drag } = lastEvent;
+  //   const { beforeTranslate } = drag;
 
-    const absoluteTop = top + beforeTranslate[1];
-    const absoluteLeft = left + beforeTranslate[0];
+  //   const absoluteTop = top + beforeTranslate[1];
+  //   const absoluteLeft = left + beforeTranslate[0];
 
-    ref.current.style.top = `${absoluteTop}px`;
-    ref.current.style.left = `${absoluteLeft}px`;
+  //   ref.current.style.top = `${absoluteTop}px`;
+  //   ref.current.style.left = `${absoluteLeft}px`;
 
-    updateMoveable(
-      id,
-      {
-        top: absoluteTop,
-        left: absoluteLeft,
-        width: newWidth,
-        height: newHeight,
-        color,
-        image,
-      },
-      true
-    );
-  };
+  //   updateMoveable(
+  //     id,
+  //     {
+  //       top: absoluteTop,
+  //       left: absoluteLeft,
+  //       width: newWidth,
+  //       height: newHeight,
+  //       color,
+  //       image,
+  //     },
+  //     true
+  //   );
+  // };
 
   return (
     <>
@@ -141,6 +140,7 @@ export const Component = ({
       >
         <img
           src={image}
+          alt='background'
           style={{
             width,
             height,
